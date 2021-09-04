@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Interfaces
 {
-    public interface IUnitofWork
+    public interface IUnitOfWork
     {
         public IGenericRepository<Category> Category { get; set; }
         int Commit();

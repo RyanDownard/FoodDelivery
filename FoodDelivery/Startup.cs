@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Data;
+using ApplicationCore.Interfaces;
 
 namespace FoodDelivery
 {
@@ -28,7 +29,10 @@ namespace FoodDelivery
             services.AddRazorPages();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext"),
+                    sqlServerOptions => sqlServerOptions.MigrationsAssembly("Infrastructure")));
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

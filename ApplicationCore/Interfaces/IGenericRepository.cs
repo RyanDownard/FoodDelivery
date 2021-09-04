@@ -10,6 +10,7 @@ namespace ApplicationCore.Interfaces
     {
         T GetById(int id);
         T Get(Expression<Func<T, bool>> predicate, bool asNoTracking = false, string includes = null);
+        Task<T> GetAsync(Expression<Func<T, bool>> predicate, bool asNoTracking = false, string includes = null);
         IEnumerable<T> List();
         IEnumerable<T> List(Expression<Func<T, bool>> predicate, Expression<Func<T, int>> orderBy = null, string includes = null);
         Task<IEnumerable<T>> ListAsync(Expression<Func<T, bool>> predicate, Expression<Func<T, int>> orderBy = null, string includes = null);
