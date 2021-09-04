@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using FoodDelivery.Models;
+using ApplicationCore.Models;
 
-namespace FoodDelivery.Data
+namespace Infrastructure.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -14,6 +14,6 @@ namespace FoodDelivery.Data
         {
         }
 
-        public DbSet<FoodDelivery.Models.Category> Category { get; set; }
+        public DbSet<Category> Category { get; set; }
     }
 }

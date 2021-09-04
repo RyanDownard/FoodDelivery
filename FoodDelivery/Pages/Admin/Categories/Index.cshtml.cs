@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using FoodDelivery.Data;
-using FoodDelivery.Models;
+using Infrastructure.Data;
+using ApplicationCore.Models;
 
 namespace FoodDelivery.Pages.Admin.Categories
 {
     public class IndexModel : PageModel
     {
-        private readonly FoodDelivery.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public IndexModel(FoodDelivery.Data.ApplicationDbContext context)
+        public IndexModel(ApplicationDbContext context)
         {
             _context = context;
         }
