@@ -30,7 +30,7 @@ namespace FoodDelivery
 
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext"),
-                    sqlServerOptions => sqlServerOptions.MigrationsAssembly("Infrastructure")));
+                    sqlServerOptions => sqlServerOptions.MigrationsAssembly("Infrastructure"))) ;
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
