@@ -17,7 +17,7 @@ namespace Infrastructure.Data
 
         private IGenericRepository<Category> _Category;
 
-        public IGenericRepository<Category> Category 
+        public IGenericRepository<Category> Category
         {
             get
             {
@@ -33,7 +33,6 @@ namespace Infrastructure.Data
             }
         }
 
-        IGenericRepository<Category> IUnitOfWork.Category { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public int Commit()
         {

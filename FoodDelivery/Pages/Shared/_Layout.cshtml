@@ -3,26 +3,49 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FoodDelivery</title>
+    <title>@ViewData["Title"] - Food Delivery</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary text-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">FoodDelivery</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="~/images/logo.gif" alt="logo" /> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Categories/Index">Admin</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropDown" data-toggle="dropdown">
+                                Admin
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-black" asp-page="/Admin/Categories/Index">Category</a>
+                                <a class="dropdown-item text-black" asp-page="/Admin/FoodTypes/Index">Food Type</a>
+                                <a class="dropdown-item text-black" asp-page="/Admin/MenuItems/Index">Menu Item</a>
+                                <a class="dropdown-item text-black" asp-page="/Admin/Roles/Roles">Roles</a>
+                                <a class="dropdown-item text-black" asp-page="/Admin/User/Index">User</a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-white" asp-page="/Admin/Order/ManageOrder">Manage Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-page="/Admin/Order/OrderList">Order Deliveries</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-page="/Admin/Order/OrderList">Order History</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-white" asp-page="/Customer/Cart/Index">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -34,15 +57,16 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - FoodDelivery - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2021 - Food Delivery (A CS 4790 Tutorial)
         </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
