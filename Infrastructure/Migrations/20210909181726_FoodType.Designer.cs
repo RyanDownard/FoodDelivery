@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210904040052_initial")]
-    partial class initial
+    [Migration("20210909181726_FoodType")]
+    partial class FoodType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,6 +37,21 @@ namespace Infrastructure.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("ApplicationCore.Models.FoodType", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("FoodType");
                 });
 #pragma warning restore 612, 618
         }

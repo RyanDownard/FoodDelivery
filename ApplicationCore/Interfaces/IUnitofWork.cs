@@ -8,7 +8,8 @@ namespace ApplicationCore.Interfaces
 {
     public interface IUnitOfWork
     {
-        public IGenericRepository<Category> Category { get; set; }
+        public IGenericRepository<Category> Category { get; }
+        public IGenericRepository<FoodType> FoodType { get; }
         int Commit();
         Task<int> CommitAsync();
     }

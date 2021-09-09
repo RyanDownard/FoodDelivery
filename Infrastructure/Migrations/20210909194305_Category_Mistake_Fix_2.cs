@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Migrations
 {
-    public partial class initial : Migration
+    public partial class Category_Mistake_Fix_2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,19 +12,19 @@ namespace Infrastructure.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DisplayOrder = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.ID);
-                });
+            });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Category");
+    name: "Category");
         }
     }
 }
