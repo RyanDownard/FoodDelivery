@@ -28,7 +28,7 @@ namespace FoodDelivery.Controllers
             var objFromDb = _unitOfWork.FoodType.Get(c => c.ID == id);
             if (objFromDb == null)
             {
-                return Json(new { success = false, message = "Error while deleting category." });
+                return Json(new { success = false, message = "Error while deleting food type." });
             }
             _unitOfWork.FoodType.Delete(objFromDb);
             _unitOfWork.Commit();

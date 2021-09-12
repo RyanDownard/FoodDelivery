@@ -15,7 +15,7 @@ function loadList() {
             { data: "name", width: "25%" },
             { data: "price", render: $.fn.dataTable.render.number(',', '.', 2, "$"), width: "15%" },
             { data: "category.name", widtH: "15%" },
-            { data: "foodtype.name", width: "15%" },
+            { data: "foodType.name", width: "15%" },
             {
                 data: "id", width: "30%",
                 "render": function (data) {

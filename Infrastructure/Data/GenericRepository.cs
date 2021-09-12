@@ -49,7 +49,7 @@ namespace Infrastructure.Data
 
             if (asNoTracking)
             {
-                return queryable.AsNoTracking().Where(predicate).FirstOrDefault();
+                return queryable.Where(predicate).AsNoTracking().FirstOrDefault();
             }
             else
             {
