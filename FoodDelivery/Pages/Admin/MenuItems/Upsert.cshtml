@@ -22,7 +22,7 @@
                     </div>
                     @if (Model.MenuItemVM.MenuItem.ID != 0)
                     {
-        <input type="hidden" asp-for="MenuItemVM.MenuItem.ID" />}
+                        <input type="hidden" asp-for="MenuItemVM.MenuItem.ID" />}
                 </div>
                 <div class="form-group row">
                     <div class="col-3">
@@ -59,7 +59,7 @@
                         @Html.DropDownListFor(m => m.MenuItemVM.MenuItem.CategoryID,
                                                         Model.MenuItemVM.CategoryList,
                                                         " - Please select a category - ",
-                                                        new { @class = "form-control" })
+                                                        new { @class = "form-control", @id = "ddlCategory" })
                         <span class="text-danger" asp-validation-for="MenuItemVM.MenuItem.CategoryID"></span>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                         @Html.DropDownListFor(m => m.MenuItemVM.MenuItem.FoodTypeID,
                                                         Model.MenuItemVM.FoodTypeList,
                                                         " - Please select a food type - ",
-                                                        new { @class = "form-control" })
+                                                        new { @class = "form-control", @id = "ddlFoodType" })
                         <span class="text-danger" asp-validation-for="MenuItemVM.MenuItem.FoodTypeID"></span>
                     </div>
                 </div>
@@ -96,9 +96,9 @@
             </div>
             @if (Model.MenuItemVM.MenuItem != null)
             {
-<div class="col-4 p-4">
-    <img id="existingImg" src="@Model.MenuItemVM.MenuItem.Image" style="border-radius:5px; border: 1px solid #bbb9b9; width:100%" />
-</div>            }
+                <div class="col-4 p-4">
+                    <img id="existingImg" src="@Model.MenuItemVM.MenuItem.Image" style="border-radius:5px; border: 1px solid #bbb9b9; width:100%" />
+                </div>      }
         </div>
 
     </div>
@@ -111,6 +111,24 @@
             plugs: 'lists',
             menubar: 'file edit format'
         })
+
+        function ValidateInput() {
+            if ($("#uploadImgBox").val() == "") {
+                swal("Error", "Pleas select an image", "error");
+                return false;
+            }
+
+            if ($("#ddlCategory option:selected").val() == 0) {
+                swal("Error", "Pleas select a category", "error");
+                return false;
+            }
+
+            if ($("#ddlFoodType option:selected").val() == 0) {
+                swal("Error", "Pleas select a food type", "error");
+                return false;
+            }
+            return true;
+        }
     </script>
 
 }

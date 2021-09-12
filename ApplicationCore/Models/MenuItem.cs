@@ -18,7 +18,9 @@ namespace ApplicationCore.Models
         public float Price { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        [Display(Name = "Category")]
         public int CategoryID { get; set; }
+        [Display(Name = "Food Type")]
         public int FoodTypeID { get; set; }
 
         [ForeignKey("CategoryID")]

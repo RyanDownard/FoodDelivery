@@ -59,7 +59,7 @@ namespace FoodDelivery.Pages.Admin.MenuItems
                         files[0].CopyTo(fileStream); 
                     }
 
-                    MenuItemVM.MenuItem.Image = @"\images\menuitems" + fileName + extension;
+                    MenuItemVM.MenuItem.Image = @"\images\menuitems\" + fileName + extension;
                 }
                 _unitOfWork.MenuItem.Add(MenuItemVM.MenuItem);
             }
