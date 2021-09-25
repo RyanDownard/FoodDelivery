@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodDelivery", "FoodDelivery\FoodDelivery.csproj", "{00D8C3D1-F374-4B54-9795-3B58742BEEAB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{70345103-515F-4900-B34B-C3CA659E17F5} = {70345103-515F-4900-B34B-C3CA659E17F5}
+		{28B014A7-B332-4C16-A608-983B19084180} = {28B014A7-B332-4C16-A608-983B19084180}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{70345103-515F-4900-B34B-C3CA659E17F5}"
