@@ -14,6 +14,7 @@ using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Infrastructure.Services;
+using ApplicationCore.Models;
 
 namespace FoodDelivery
 {
@@ -36,7 +37,7 @@ namespace FoodDelivery
                     sqlServerOptions => sqlServerOptions.MigrationsAssembly("Infrastructure"))) ;
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddDefaultTokenProviders().AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.Configure<IdentityOptions>(options =>
