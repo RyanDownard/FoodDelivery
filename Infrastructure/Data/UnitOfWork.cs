@@ -19,6 +19,7 @@ namespace Infrastructure.Data
         private IGenericRepository<FoodType> _FoodType;
         private IGenericRepository<MenuItem> _MenuItem;
         private IGenericRepository<ApplicationUser> _ApplicationUser;
+        private IGenericRepository<ShoppingCart> _shoppingCart;
 
         public IGenericRepository<ApplicationUser> ApplicationUser
         {
@@ -65,6 +66,17 @@ namespace Infrastructure.Data
             }
         }
 
+        public IGenericRepository<ShoppingCart> ShoppingCart
+        {
+            get
+            {
+                if (_shoppingCart == null)
+                {
+                    _shoppingCart = new GenericRepository<ShoppingCart>(_dbContext);
+                }
+                return _shoppingCart;
+            }
+        }
 
         public int Commit()
         {
