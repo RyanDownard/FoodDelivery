@@ -20,6 +20,8 @@ namespace Infrastructure.Data
         private IGenericRepository<MenuItem> _MenuItem;
         private IGenericRepository<ApplicationUser> _ApplicationUser;
         private IGenericRepository<ShoppingCart> _shoppingCart;
+        private IGenericRepository<OrderHeader> _orderHeader;
+        private IGenericRepository<OrderDetails> _orderDetails;
 
         public IGenericRepository<ApplicationUser> ApplicationUser
         {
@@ -46,7 +48,7 @@ namespace Infrastructure.Data
         {
             get
             {
-                if(_FoodType == null)
+                if (_FoodType == null)
                 {
                     _FoodType = new GenericRepository<FoodType>(_dbContext);
                 }
@@ -58,7 +60,7 @@ namespace Infrastructure.Data
         {
             get
             {
-                if(_MenuItem == null)
+                if (_MenuItem == null)
                 {
                     _MenuItem = new GenericRepository<MenuItem>(_dbContext);
                 }
@@ -75,6 +77,30 @@ namespace Infrastructure.Data
                     _shoppingCart = new GenericRepository<ShoppingCart>(_dbContext);
                 }
                 return _shoppingCart;
+            }
+        }
+
+        public IGenericRepository<OrderHeader> OrderHeader
+        {
+            get
+            {
+                if(_orderHeader == null)
+                {
+                    _orderHeader = new GenericRepository<OrderHeader>(_dbContext);
+                }
+                return _orderHeader;
+            }
+        }
+
+        public IGenericRepository<OrderDetails> OrderDetails
+        {
+            get
+            {
+                if (_orderDetails == null)
+                {
+                    _orderDetails = new GenericRepository<OrderDetails>(_dbContext);
+                }
+                return _orderDetails;
             }
         }
 

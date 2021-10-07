@@ -13,6 +13,8 @@ namespace ApplicationCore.Interfaces
         public IGenericRepository<MenuItem> MenuItem { get; }
         public IGenericRepository<ApplicationUser> ApplicationUser { get; }
         public IGenericRepository<ShoppingCart> ShoppingCart { get; }
+        public IGenericRepository<OrderHeader> OrderHeader { get; }
+        public IGenericRepository<OrderDetails> OrderDetails { get; }
         int Commit();
         Task<int> CommitAsync();
     }

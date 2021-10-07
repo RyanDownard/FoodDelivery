@@ -20,5 +20,7 @@ namespace Infrastructure.Data
         public DbSet<FoodType> FoodType { get; set; }
         public DbSet<MenuItem> MenuItem { get; set; }
         public DbSet<ShoppingCart> ShoppingCart { get; set; }
+        public DbSet<OrderHeader> OrderHeader { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
     }
 }
