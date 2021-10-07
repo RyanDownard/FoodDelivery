@@ -19,7 +19,7 @@ namespace ApplicationCore.Models
         public int MenuItemID { get; set; }
         [Range(1, 100, ErrorMessage = "Pleas select a count between 1-100")]
         public int Count { get; set; }
-        public string ApplicationuserID { get; set; }
+        public string ApplicationUserID { get; set; }
 
         [NotMapped]
         [ForeignKey("MenuItemID")]
