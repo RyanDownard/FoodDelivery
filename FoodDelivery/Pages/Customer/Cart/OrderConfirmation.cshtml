@@ -1,0 +1,19 @@
+﻿@page
+@model FoodDelivery.Pages.Customer.Cart.OrderConfirmationModel
+@{
+    ViewData["Title"] = "Order Confirmation";
+}
+
+<div class="container row">
+    <div class="col-12 text-center">
+        <h1 class="text-primary text-center">Order Placed Successfully!</h1>
+        Your Order Number is: @Model.OrderID <br /><br />
+        <img src="~/images/logo.gif" style="width:100%" />
+    </div>
+    <div class="col-12 text-center" style="color:maroon">
+        <br />
+        Your order has been placed successfully!
+        <br />
+        Our friendly driver will arrive on time with your hot delicious food!
+    </div>
+</div>

@@ -10,6 +10,7 @@ using Infrastructure.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Stripe;
 
 namespace FoodDelivery.Pages.Customer.Cart
 {
@@ -89,7 +90,31 @@ namespace FoodDelivery.Pages.Customer.Cart
             HttpContext.Session.SetInt32(StaticDetails.ShoppingCart, 0);
             _unitOfWork.Commit();
 
+            if(stripeToken != null)
+            {
+                var options = new ChargeCreateOptions
+                {
+                    Amount = Convert.ToInt32(OrderDetailsCart.OrderHeader.OrderTotal * 100),
+                    Currency = "usd",
+                    Description = $"Order ID: {OrderDetailsCart.OrderHeader.ID}",
+                    Source = stripeToken
+                };
 
+                var service = new ChargeService();
+                Charge charge = service.Create(options);
+                OrderDetailsCart.OrderHeader.TransactionID = charge.Id;
+                if(charge.Status.ToLower() == "succeeded")
+                {
+                    OrderDetailsCart.OrderHeader.PaymentStatus = StaticDetails.PaymentStatusApproved;
+                }
+                else
+                {
+                    OrderDetailsCart.OrderHeader.PaymentStatus = StaticDetails.PaymentStatusRejected;
+                }
+                _unitOfWork.Commit();
+            }
+
+            return RedirectToPage("/Customer/Cart/OrderConfirmation", new { id = OrderDetailsCart.OrderHeader.ID });
         }
     }
 }
