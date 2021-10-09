@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Infrastructure.Services;
 using ApplicationCore.Models;
+using Stripe;
 
 namespace FoodDelivery
 {
@@ -36,6 +37,9 @@ namespace FoodDelivery
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
             services.AddRazorPages();
 
             services.AddDbContext<ApplicationDbContext>(options =>

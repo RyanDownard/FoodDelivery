@@ -33,6 +33,8 @@ namespace ApplicationCore.Models
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
         public string TransactionID { get; set; }
+        public string Comments { get; set; }
+        public string PaymentStatus { get; set; }
 
 
         [ForeignKey("UserID")]
