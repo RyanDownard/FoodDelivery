@@ -46,7 +46,7 @@ namespace FoodDelivery.Pages.Customer.Cart
                     OrderDetailsCart.OrderHeader.OrderTotal += (cartList.MenuItem.Price * cartList.Count);
                 }
 
-                OrderDetailsCart.OrderHeader.OrderTotal *= StaticDetails.SalesTaxPercent;
+                OrderDetailsCart.OrderHeader.OrderTotal += OrderDetailsCart.OrderHeader.OrderTotal * StaticDetails.SalesTaxPercent;
                 ApplicationUser applicationUser = _unitOfWork.ApplicationUser.Get(i => i.Id == claim.Value);
                 OrderDetailsCart.OrderHeader.DeliveryName = applicationUser.FullName;
                 OrderDetailsCart.OrderHeader.PhoneNumber = applicationUser.PhoneNumber;
