@@ -81,7 +81,6 @@ namespace FoodDelivery.Areas.Identity.Pages.Account
         {
             //retrieve the role from the form
             string role = Request.Form["rdUserRole"].ToString();
-            if (role == "") { role = StaticDetails.ManagerRole; } //make the first login a manager)
             returnUrl ??= Url.Content("~/"); //null-coalescing assignment operator ??= assigns the value of right-hand operand to its left-hand operand only if the left-hand is nulll
             if (ModelState.IsValid)
             {
@@ -98,6 +97,7 @@ namespace FoodDelivery.Areas.Identity.Pages.Account
                 //add the roles to the ASPNET Roles table if they do not exist yet
                 if (!await _roleManager.RoleExistsAsync(StaticDetails.ManagerRole))
                 {
+                    if (role == "") { role = StaticDetails.ManagerRole; } //make the first login a manager)
                     _roleManager.CreateAsync(new IdentityRole(StaticDetails.ManagerRole)).GetAwaiter().GetResult();
                     _roleManager.CreateAsync(new IdentityRole(StaticDetails.DriverRole)).GetAwaiter().GetResult();
                     _roleManager.CreateAsync(new IdentityRole(StaticDetails.KitchenRole)).GetAwaiter().GetResult();
